@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:custom_painter/src/pages/graficas_circulares_page.dart';
+import 'package:custom_painter/src/pages/slideshow_page.dart';
+// import 'package:custom_painter/src/pages/graficas_circulares_page.dart';
 // import 'package:custom_painter/src/lab/cicular_progres_page.dart';
 // import 'package:custom_painter/src/challenges/cuadrado_animado_page.dart';
 // import 'package:custom_painter/src/pages/animations_page.dart';
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Material App',
       debugShowCheckedModeBanner: false,
-      home: GraficasCircularesPage(),
+      home: SlideshowPage(),
     );
   }
 }
