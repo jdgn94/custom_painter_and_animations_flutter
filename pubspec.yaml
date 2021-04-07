@@ -31,6 +31,8 @@ dependencies:
   flutter_svg: ^0.20.0-nullsafety.3
   provider:
   flutter_staggered_grid_view:
+  font_awesome_flutter:
+  animate_do:
 
 dev_dependencies:
   flutter_test:

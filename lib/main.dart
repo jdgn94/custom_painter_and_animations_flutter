@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:custom_painter/src/pages/slideshow_page.dart';
+import 'package:custom_painter/src/pages/emergency_page.dart';
+// import 'package:custom_painter/src/pages/pinterest_page.dart';
+// import 'package:custom_painter/src/pages/slideshow_page.dart';
 // import 'package:custom_painter/src/pages/graficas_circulares_page.dart';
 // import 'package:custom_painter/src/lab/cicular_progres_page.dart';
 // import 'package:custom_painter/src/challenges/cuadrado_animado_page.dart';
@@ -15,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Material App',
       debugShowCheckedModeBanner: false,
-      home: SlideshowPage(),
+      home: EmergencyPage(),
     );
   }
 }

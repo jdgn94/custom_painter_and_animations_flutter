@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 class HeaderCuadrado extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -300,5 +302,135 @@ class _HeaderWavesGradientPainter extends CustomPainter {
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
     return true;
+  }
+}
+
+class IconHeader extends StatelessWidget {
+  final IconData icon;
+  final String title;
+  final String subtitle;
+  final Color primary;
+  final Color secondary;
+  final Color textColor;
+
+  IconHeader({
+    @required this.icon,
+    @required this.title,
+    @required this.subtitle,
+    this.primary = Colors.grey,
+    this.secondary = Colors.blueGrey,
+    this.textColor = Colors.white,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        _IconHeaderBackground(primary, secondary),
+        _IconHeaderPlusOpacity(icon, textColor),
+        _IconHeaderText(title, subtitle, icon, textColor)
+      ],
+    );
+  }
+}
+
+class _IconHeaderText extends StatelessWidget {
+  final String title;
+  final String subtitle;
+  final IconData icon;
+  final Color textColor;
+
+  const _IconHeaderText(
+    this.title,
+    this.subtitle,
+    this.icon,
+    this.textColor,
+  );
+
+  @override
+  Widget build(BuildContext context) {
+    final Color textColorOpacity = textColor.withOpacity(0.7);
+    return Column(
+      children: [
+        SizedBox(
+          height: 80,
+          width: double.infinity,
+        ),
+        Text(
+          title,
+          style: TextStyle(
+            fontSize: 20,
+            color: textColorOpacity,
+          ),
+        ),
+        SizedBox(height: 20),
+        Text(
+          subtitle,
+          style: TextStyle(
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+            color: textColorOpacity,
+          ),
+        ),
+        SizedBox(height: 20),
+        FaIcon(
+          icon,
+          size: 80,
+          color: textColor,
+        ),
+      ],
+    );
+  }
+}
+
+class _IconHeaderPlusOpacity extends StatelessWidget {
+  final Color textColor;
+  final IconData icon;
+
+  _IconHeaderPlusOpacity(
+    this.icon,
+    this.textColor,
+  );
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      top: -50,
+      left: -70,
+      child: FaIcon(
+        icon,
+        size: 250,
+        color: textColor.withOpacity(0.2),
+      ),
+    );
+  }
+}
+
+class _IconHeaderBackground extends StatelessWidget {
+  final Color primary;
+  final Color secondary;
+
+  _IconHeaderBackground(
+    this.primary,
+    this.secondary,
+  );
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      height: 300,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.only(bottomLeft: Radius.circular(80.0)),
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            primary,
+            secondary,
+          ],
+        ),
+      ),
+    );
   }
 }
